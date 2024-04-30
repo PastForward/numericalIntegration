@@ -27,3 +27,7 @@ label {
   font-weight: bold;
   font-style: italic;
 }
+
+.answer {
+  text-align: center;
+}
