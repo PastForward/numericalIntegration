@@ -7,11 +7,29 @@
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
-    <main>
-        <h1>hello</h1>  
-    </main>
+    <div class="title">
+          <h1>Neumerical Integration Calculator</h1>  
+          <h3>for Professor Nikitovic's Kalk 2 Class</h3>
+    </div>
+    <div>
+      <h2>Midpoint Rule</h2>
+    </div>
+      <main>
+        <div> 
+          <form class="inputs">
+          <label>Equation:</label>
+            <input type="text" id="function" placeholder="function">
+          <label>Lower Limit:</label>
+            <input type="text" id="lowerLimit" placeholder="upperLimit">
+          <label>Upper Limit:</label>
+            <input type="text" id="upperLimit" placeholder="lowerLimit">
+          <input type="submit" value="calculate">
+          </form>
+      </main>
 	<script src="index.js"></script>
   </body>
 </html>
