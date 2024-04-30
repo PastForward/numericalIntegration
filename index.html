@@ -24,11 +24,16 @@
           <label>Equation:</label>
             <input type="text" id="function" placeholder="function">
           <label>Lower Limit:</label>
-            <input type="text" id="lowerLimit" placeholder="upperLimit">
+            <input type="number" id="lowerLimit" placeholder="upperLimit">
           <label>Upper Limit:</label>
-            <input type="text" id="upperLimit" placeholder="lowerLimit">
+            <input type="number" id="upperLimit" placeholder="lowerLimit">
+          <label>Sub Intervals:</label>
+          <input type="number" id="subIntervals" placeholder="subIntervals">
           <input type="submit" value="calculate">
           </form>
+        <div class="answer">
+          <text id="answer">answer</text>
+        </div>
       </main>
 	<script src="script.js"></script>
   </body>
