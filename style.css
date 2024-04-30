@@ -1,0 +1,29 @@
+h1 {
+  text-align: center;
+  margin-bottom: 0rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin-top: auto;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  margin: 1rem;
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  font-style: italic;
+}
