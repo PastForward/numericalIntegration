@@ -37,14 +37,12 @@ $(document).ready(function() {
     while (left < upperLimit) {
       
       let currentMidpoint = (left + right) / 2
+      // TODO: fix math.evaluate, its being shown as not a function 
       answer += math.evaluate({ x: currentMidpoint });
 
       left = right;
       right = right + h;
 
-      
-     
-      
     }
     
     finalAnswer = deltaX * answer;
