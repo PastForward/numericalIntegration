@@ -60,35 +60,7 @@ $(document).ready(function() {
       finalAnswer *= -1;
     }
 
-    console.log("delta x: " + deltaX);
-    console.log("left: " + left);
-    console.log("right: " + right);
-    console.log("final answer: "+ finalAnswer);
-   
-    console.log("THE VALUES:");
-    console.log(func);
-    console.log(getLowerLimit);
-    console.log(getUpperLimit);
-    console.log(getSubIntervals);
-
-    console.log('\nTHE VALUES IN MATH FORM:');
-    console.log(equation);
-    console.log(lowerLimit);
-    console.log(upperLimit);
-    console.log(subIntervals);
-
-    // displaying the value
-    
-    console.log(finalAnswer);
+    // displaying the value in the answer slot
     $("#answer").text(finalAnswer);
-
-    // $('#answer').displayValue(finalAnswer); 
   });
-
-  // jQuery.fn.displayValue = function(finalAnswer) {
-    // console.log("displaying value!");
-    // $(this).text(finalAnswer);
-    // console.log(finalAnswer);
-    // console.log(this.length);
-  // }
 });
