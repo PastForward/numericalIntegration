@@ -127,10 +127,10 @@ $(document).ready(function() {
     e.preventDefault();
 
     // Get all the forms elements and their values 
-    let func = $('#midpointFunction').val();
-    let getLowerLimit = $('#midpointLowerLimit').val();
-    let getUpperLimit = $('#midpointUpperLimit').val();
-    let getSubIntervals = $('#midpointSubIntervals').val();
+    let func = $('#simpsonFunction').val();
+    let getLowerLimit = $('#simpsonLowerLimit').val();
+    let getUpperLimit = $('#simpsonUpperLimit').val();
+    let getSubIntervals = $('#simpsonSubIntervals').val();
     
     // typecasting the inputs to their respective identities
     const equation = math.compile(func);
@@ -139,6 +139,42 @@ $(document).ready(function() {
     let subIntervals = Number(getSubIntervals);
     let isNegative = false
 
+    if (upperLimit <= lowerLimit) {
+      isNegative = true;
+      let temp = upperLimit;
+      upperLimit = lowerLimit;
+      lowerLimit = temp;
+    }
+
+    let deltaX = (upperLimit - lowerLimit) / subIntervals;
+    // skipping the first integration for the while loop
+    let point = lowerLimit;
+    let answer = 0;
+    let nCount = 0;
+
+    answer += equation.evaluate({ x: point });
+    point += deltaX;
+    while (point <= upperLimit - deltaX) {
+     
+      console.log(equation.evaluate({ x: point}));
+       if (nCount % 2 == 0) {
+        answer += 4 * equation.evaluate({ x: point });
+
+      } else answer += 2 * equation.evaluate({ x: point });
+
+      point += deltaX;
+      nCount++;
+    }
+      answer += equation.evaluate({ x: point });
+
+    let finalAnswer = answer * (deltaX / 3);
+    
+    if (isNegative) {
+      finalAnswer *= -1;
+    }
+
+    // displaying the value in the answer slot
+    $("#simpsonAnswer").text(finalAnswer);
 
   });
 });
