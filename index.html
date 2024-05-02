@@ -22,13 +22,13 @@
           <h2>Trapezoid Rule</h2>
           <form class="trapezoidInputs">
             <label>Equation:</label>
-              <input type="text" id="trapezoidFunction" placeholder="function">
+              <input type="text" id="trapezoidFunction" placeholder="function" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Please input a function.')" required>
             <label>Lower Limit:</label>
-              <input type="number" id="trapezoidLowerLimit" placeholder="upperLimit">
+              <input type="number" id="trapezoidLowerLimit" placeholder="upperLimit" required>
             <label>Upper Limit:</label>
-              <input type="number" id="trapezoidUpperLimit" placeholder="lowerLimit">
+              <input type="number" id="trapezoidUpperLimit" placeholder="lowerLimit" required>
             <label>Sub Intervals:</label>
-            <input type="number" id="trapezoidSubIntervals" placeholder="subIntervals">
+            <input type="number" id="trapezoidSubIntervals" placeholder="subIntervals" required>
             <input type="submit" value="calculate">
             </form>
             <div class="answer">
@@ -40,13 +40,13 @@
             <h2>Midpoint Rule</h2>
             <form class="midpointInputs">
             <label>Equation:</label>
-              <input type="text" id="midpointFunction" placeholder="function">
+              <input type="text" id="midpointFunction" placeholder="function" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Please input a function.')" required>
             <label>Lower Limit:</label>
-              <input type="number" id="midpointLowerLimit" placeholder="upperLimit">
+              <input type="number" id="midpointLowerLimit" placeholder="upperLimit" required>
             <label>Upper Limit:</label>
-              <input type="number" id="midpointUpperLimit" placeholder="lowerLimit">
+              <input type="number" id="midpointUpperLimit" placeholder="lowerLimit" required>
             <label>Sub Intervals:</label>
-            <input type="number" id="midpointSubIntervals" placeholder="subIntervals">
+            <input type="number" id="midpointSubIntervals" placeholder="subIntervals" required>
             <input type="submit" value="calculate">
             </form>
             <div class="answer">
@@ -58,13 +58,13 @@
             <h2>Simpson's Rule</h2>
             <form class="simpsonInputs">
             <label>Equation:</label>
-              <input type="text" id="simpsonFunction" placeholder="function">
+              <input type="text" id="simpsonFunction" placeholder="function" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Please input a function.')" required>
             <label>Lower Limit:</label>
-              <input type="number" id="simpsonLowerLimit" placeholder="upperLimit">
+              <input type="number" id="simpsonLowerLimit" placeholder="upperLimit" required>
             <label>Upper Limit:</label>
-              <input type="number" id="simpsonUpperLimit" placeholder="lowerLimit">
+              <input type="number" id="simpsonUpperLimit" placeholder="lowerLimit" required>
             <label>Sub Intervals:</label>
-            <input type="number" id="simpsonSubIntervals" placeholder="subIntervals">
+            <input type="number" step="2" oninput="setCustomValidity('')" required id="simpsonSubIntervals" placeholder="subIntervals" oninvalid="this.setCustomValidity('Number Must be Even!')">
             <input type="submit" value="calculate">
             </form>
             <div class="answer">
