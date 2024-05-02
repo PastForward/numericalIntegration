@@ -17,9 +17,11 @@ $(document).ready(function() {
     let lowerLimit = Number(getLowerLimit);
     let upperLimit = Number(getUpperLimit);
     let subIntervals = Number(getSubIntervals);
+    let isNegative = false;
 
     // if the upper limit is smaller than the lower limit, swap them 
     if (upperLimit <= lowerLimit) {
+      isNegative = true;
       let temp = upperLimit;
       upperLimit = lowerLimit;
       lowerLimit = temp;
@@ -46,6 +48,10 @@ $(document).ready(function() {
     // calculating the final answer, which is deltax * all the midpoints added up
     let finalAnswer = answer * (deltaX / 2);
 
+    if (isNegative) {
+      finalAnswer *= -1;
+    }
+
     // displaying the value in the answer slot
     $("#trapezoidAnswer").text(finalAnswer);
 
@@ -67,10 +73,12 @@ $(document).ready(function() {
     let lowerLimit = Number(getLowerLimit);
     let upperLimit = Number(getUpperLimit);
     let subIntervals = Number(getSubIntervals);
+    let isNegative = false
 
     // if the upper limit is smaller than the lower limit, swap them and
     // make the equation negative
     if (upperLimit <= lowerLimit) {
+      isNegative = true;
       let temp = upperLimit;
       upperLimit = lowerLimit;
       lowerLimit = temp;
@@ -105,6 +113,9 @@ $(document).ready(function() {
     
     // calculating the final answer, which is deltax * all the midpoints added up
     finalAnswer = deltaX * answer;
+    if (isNegative) {
+      finalAnswer *= -1;
+    }
 
     // displaying the value in the answer slot
     $("#midpointAnswer").text(finalAnswer);
@@ -114,6 +125,20 @@ $(document).ready(function() {
     
     // prevents the submission from reloading the page
     e.preventDefault();
+
+    // Get all the forms elements and their values 
+    let func = $('#midpointFunction').val();
+    let getLowerLimit = $('#midpointLowerLimit').val();
+    let getUpperLimit = $('#midpointUpperLimit').val();
+    let getSubIntervals = $('#midpointSubIntervals').val();
+    
+    // typecasting the inputs to their respective identities
+    const equation = math.compile(func);
+    let lowerLimit = Number(getLowerLimit);
+    let upperLimit = Number(getUpperLimit);
+    let subIntervals = Number(getSubIntervals);
+    let isNegative = false
+
 
   });
 });
