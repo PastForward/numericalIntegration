@@ -1,27 +1,76 @@
 $(document).ready(function() {
   
-    $('.inputs').submit(function(e) {
 
+    $('.trapezoidInputs').submit(function(e) {
+    
     // prevents the submission from reloading the page
     e.preventDefault();
-
+    
     // Get all the forms elements and their values 
-    let func = $('#function').val();
-    let getLowerLimit = $('#lowerLimit').val();
-    let getUpperLimit = $('#upperLimit').val();
-    let getSubIntervals = $('#subIntervals').val();
+    let func = $('#trapezoidFunction').val();
+    let getLowerLimit = $('#trapezoidLowerLimit').val();
+    let getUpperLimit = $('#trapezoidUpperLimit').val();
+    let getSubIntervals = $('#trapezoidSubIntervals').val();
     
     // typecasting the inputs to their respective identities
     const equation = math.compile(func);
     let lowerLimit = Number(getLowerLimit);
     let upperLimit = Number(getUpperLimit);
     let subIntervals = Number(getSubIntervals);
-    let isNegative = false
+
+    // if the upper limit is smaller than the lower limit, swap them 
+    if (upperLimit <= lowerLimit) {
+      let temp = upperLimit;
+      upperLimit = lowerLimit;
+      lowerLimit = temp;
+    }
+
+    let point = lowerLimit;
+    let answer = 0;
+    // technically denoted as the height of the trapezoid, h, but its also deltaX
+    let deltaX = (upperLimit - lowerLimit) / subIntervals;
+
+
+    while (point <= upperLimit) {
+
+      // if the point is at either the beginning or the end of the limit,
+      // then it will not be multiplied by 2
+      if (point === lowerLimit || point === upperLimit) {
+        answer += equation.evaluate({ x: point });
+
+      } else answer += 2 * equation.evaluate({ x: point });
+      
+      point += deltaX;
+    }
+    
+    // calculating the final answer, which is deltax * all the midpoints added up
+    let finalAnswer = answer * (deltaX / 2);
+
+    // displaying the value in the answer slot
+    $("#trapezoidAnswer").text(finalAnswer);
+
+  });
+
+    $('.midpointInputs').submit(function(e) {
+    
+    // prevents the submission from reloading the page
+    e.preventDefault();
+
+    // Get all the forms elements and their values 
+    let func = $('#midpointFunction').val();
+    let getLowerLimit = $('#midpointLowerLimit').val();
+    let getUpperLimit = $('#midpointUpperLimit').val();
+    let getSubIntervals = $('#midpointSubIntervals').val();
+    
+    // typecasting the inputs to their respective identities
+    const equation = math.compile(func);
+    let lowerLimit = Number(getLowerLimit);
+    let upperLimit = Number(getUpperLimit);
+    let subIntervals = Number(getSubIntervals);
 
     // if the upper limit is smaller than the lower limit, swap them and
     // make the equation negative
     if (upperLimit <= lowerLimit) {
-      isNegative = true;
       let temp = upperLimit;
       upperLimit = lowerLimit;
       lowerLimit = temp;
@@ -56,11 +105,15 @@ $(document).ready(function() {
     
     // calculating the final answer, which is deltax * all the midpoints added up
     finalAnswer = deltaX * answer;
-    if (isNegative) {
-      finalAnswer *= -1;
-    }
 
     // displaying the value in the answer slot
-    $("#answer").text(finalAnswer);
+    $("#midpointAnswer").text(finalAnswer);
+  });
+
+  $('.simpsonInputs').submit(function(e) {
+    
+    // prevents the submission from reloading the page
+    e.preventDefault();
+
   });
 });
